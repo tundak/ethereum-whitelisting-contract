@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-4">
+      <h1 class="text-center">White List</h1>
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            
+            <th class="text-center">Address</th>
+            <th class="text-center">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user }}</td>
+            
+
+            <td>
+              
+
+              <button type="button" class="btn btn-danger btn-sm" (click)="removeUser(user)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success" (click)="showAddUserForm()">Add New Address</button>
+
+      <div class="mt-12">
+        <form *ngIf="userForm">
+          <h2>Add New Address</h2>
+          <p>Address: <input style="width: 200px;" type="text" name="address" [(ngModel)]="newUser.address" /></p>
+          
+          <p>
+            <button type="button" class="btn btn-primary mr-2" (click)="saveUser(newUser)">Submit</button>
+            <button type="button" class="btn btn-warning" (click)="cancelNewUser()">Cancel</button>
+          </p>
+        </form>
+
+       
+      </div>
+    </div>
+  </div>
+</div>
